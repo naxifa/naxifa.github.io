@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Nazifa Maliha — AI, business analytics, and enterprise strategy portfolio." />
+  <meta name="theme-color" content="#0b0b17" />
+  <title>Nazifa Maliha — AI & Business</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g'%3E%3Cstop stop-color='%23ff718c'/%3E%3Cstop offset='1' stop-color='%237c6cff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='%230b0b17'/%3E%3Cpath d='M17 45V19h7l16 17V19h7v26h-7L24 28v17z' fill='url(%23g)'/%3E%3C/svg%3E" />
+  <style>
+    :root {
+      --bg: #090a14;
+      --bg-2: #0e1020;
+      --surface: rgba(255,255,255,.065);
+      --surface-strong: rgba(255,255,255,.1);
+      --line: rgba(255,255,255,.13);
+      --text: #f7f4ff;
+      --muted: #aaa9bc;
+      --coral: #ff718c;
+      --violet: #9b82ff;
+      --cyan: #62e6d8;
+      --gold: #ffc36b;
+      --radius: 24px;
+      --max: 1240px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 5%, rgba(155,130,255,.15), transparent 28%),
+        radial-gradient(circle at 88% 18%, rgba(255,113,140,.12), transparent 25%),
+        radial-gradient(circle at 55% 80%, rgba(98,230,216,.07), transparent 27%),
+        var(--bg);
+      font: 16px/1.65 "DM Sans", sans-serif;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      opacity: .22;
+      background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: linear-gradient(to bottom, black, transparent 85%);
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button { color: inherit; font: inherit; }
+    img { max-width: 100%; display: block; }
+    .wrap { width: min(calc(100% - 40px), var(--max)); margin-inline: auto; }
+    .skip { position: fixed; top: 0; left: 1rem; z-index: 100; transform: translateY(-120%); padding: .7rem 1rem; background: var(--text); color: var(--bg); border-radius: 0 0 10px 10px; }
+    .skip:focus { transform: none; }
+
+    .orb { position: fixed; z-index: -1; width: 360px; height: 360px; border-radius: 50%; filter: blur(90px); pointer-events: none; opacity: .13; }
+    .orb-a { background: var(--violet); top: 10%; left: -130px; }
+    .orb-b { background: var(--coral); right: -140px; top: 40%; }
+
+    header {
+      width: min(calc(100% - 40px), var(--max));
+      height: 86px;
+      margin-inline: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--line);
+      position: relative;
+      z-index: 20;
+    }
+
+    .logo { display: flex; align-items: center; gap: .75rem; font-family: Manrope,sans-serif; font-weight: 800; letter-spacing: -.03em; }
+    .logo-mark { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 12px; background: linear-gradient(135deg,var(--coral),var(--violet)); box-shadow: 0 10px 30px rgba(155,130,255,.25); }
+    .logo span:last-child { color: var(--muted); font-size: .76rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; }
+    nav { display: flex; gap: 1.8rem; color: var(--muted); font-size: .88rem; font-weight: 600; }
+    nav a { transition: color .2s ease; }
+    nav a:hover { color: var(--text); }
+    .nav-cta { padding: .6rem .9rem; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--text); }
+    .menu-button { display: none; border: 1px solid var(--line); background: var(--surface); border-radius: 10px; padding: .5rem .7rem; cursor: pointer; }
+
+    .hero {
+      min-height: calc(100vh - 86px);
+      display: grid;
+      grid-template-columns: 1.08fr .72fr;
+      gap: clamp(3rem,8vw,8rem);
+      align-items: center;
+      padding: 5rem 0 7rem;
+    }
+
+    .eyebrow { display: inline-flex; align-items: center; gap: .65rem; color: var(--cyan); font-size: .74rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 25px; height: 1px; background: var(--cyan); }
+    h1,h2,h3 { font-family: Manrope,sans-serif; }
+    h1 { margin: 1.2rem 0 1.5rem; font-size: clamp(3.65rem,7.6vw,7.8rem); line-height: .9; letter-spacing: -.075em; }
+    .gradient-text { color: transparent; background: linear-gradient(100deg,var(--coral),var(--gold) 45%,var(--violet)); background-clip: text; -webkit-background-clip: text; }
+    .intro { max-width: 680px; margin: 0; color: #c5c2d1; font-size: clamp(1.04rem,1.5vw,1.2rem); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2.2rem; }
+    .button { min-height: 50px; display: inline-flex; align-items: center; justify-content: center; gap: .75rem; padding: .75rem 1.1rem; border: 1px solid transparent; border-radius: 12px; font-weight: 700; transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
+    .button:hover { transform: translateY(-3px); }
+    .button-primary { background: linear-gradient(135deg,var(--coral),#b174ff); color: #fff; box-shadow: 0 14px 35px rgba(255,113,140,.18); }
+    .button-secondary { border-color: var(--line); background: var(--surface); }
+    .mini-links { display: flex; gap: 1.2rem; margin-top: 1.5rem; color: var(--muted); font-size: .84rem; }
+    .mini-links a:hover { color: var(--cyan); }
+
+    .portrait-shell { position: relative; max-width: 470px; justify-self: end; }
+    .portrait-aura { position: absolute; inset: -4%; border-radius: 42% 58% 62% 38% / 42% 40% 60% 58%; background: linear-gradient(140deg,var(--coral),var(--violet),var(--cyan)); filter: blur(18px); opacity: .45; animation: morph 9s ease-in-out infinite; }
+    .portrait-frame { position: relative; aspect-ratio: .83; overflow: hidden; border: 1px solid rgba(255,255,255,.25); border-radius: 42% 58% 62% 38% / 42% 40% 60% 58%; background: #d7d0d3; animation: morph 9s ease-in-out infinite; box-shadow: 0 40px 90px rgba(0,0,0,.38); }
+    .portrait-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center 52%; transform: scale(1.22); }
+    @keyframes morph { 0%,100% { border-radius: 42% 58% 62% 38% / 42% 40% 60% 58%; } 50% { border-radius: 56% 44% 38% 62% / 58% 52% 48% 42%; } }
+    .portrait-card { position: absolute; right: -8%; bottom: 8%; width: 210px; padding: 1rem; border: 1px solid rgba(255,255,255,.2); border-radius: 16px; background: rgba(14,16,32,.78); backdrop-filter: blur(18px); box-shadow: 0 15px 35px rgba(0,0,0,.25); }
+    .portrait-card small { color: var(--cyan); font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; }
+    .portrait-card strong { display: block; margin-top: .3rem; font-family: Manrope,sans-serif; font-size: .92rem; }
+
+    .ticker { overflow: hidden; border-block: 1px solid var(--line); background: rgba(255,255,255,.025); }
+    .ticker-track { width: max-content; display: flex; align-items: center; gap: 2.3rem; padding: 1rem 0; animation: ticker 28s linear infinite; color: #c7c4d4; font-size: .76rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+    .ticker-track i { width: 5px; height: 5px; border-radius: 50%; background: var(--coral); }
+    @keyframes ticker { to { transform: translateX(-50%); } }
+
+    section { padding: 8rem 0; }
+    .section-head { display: grid; grid-template-columns: 1.2fr .8fr; gap: 4rem; align-items: end; margin-bottom: 3rem; }
+    .section-kicker { color: var(--coral); font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+    .section-head h2,.about-copy h2,.contact h2 { margin: .8rem 0 0; font-size: clamp(2.7rem,5.4vw,5.7rem); line-height: .98; letter-spacing: -.06em; }
+    .section-head p { max-width: 520px; margin: 0; color: var(--muted); }
+
+    .filters { display: flex; flex-wrap: wrap; gap: .55rem; margin-bottom: 1.25rem; }
+    .filter { border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--muted); padding: .55rem .9rem; cursor: pointer; transition: all .2s ease; }
+    .filter:hover,.filter.active { border-color: transparent; background: var(--text); color: var(--bg); }
+
+    .projects { display: grid; grid-template-columns: repeat(12,1fr); gap: 1rem; }
+    .project { grid-column: span 6; min-height: 420px; display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: linear-gradient(145deg,rgba(255,255,255,.085),rgba(255,255,255,.03)); backdrop-filter: blur(14px); cursor: pointer; transition: transform .25s ease,border-color .25s ease,box-shadow .25s ease; }
+    .project:first-child { grid-column: span 8; }.project:nth-child(2) { grid-column: span 4; }
+    .project:hover { transform: translateY(-6px); border-color: rgba(255,255,255,.3); box-shadow: 0 28px 65px rgba(0,0,0,.2); }
+    .project.hidden { display: none; }
+    .project-art { min-height: 210px; display: grid; place-items: center; position: relative; overflow: hidden; border-bottom: 1px solid var(--line); }
+    .project-art::before { content: ""; position: absolute; inset: 0; opacity: .35; background-image: linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px); background-size: 34px 34px; }
+    .art-risk { background: radial-gradient(circle at center,rgba(255,195,107,.18),transparent 50%),linear-gradient(135deg,#302032,#141325); }
+    .art-audit { background: radial-gradient(circle at 80% 20%,rgba(98,230,216,.22),transparent 45%),#111b23; }
+    .art-agent { background: radial-gradient(circle at 20% 80%,rgba(155,130,255,.25),transparent 50%),#17142b; }
+    .art-data { background: radial-gradient(circle at 50% 20%,rgba(255,113,140,.18),transparent 45%),#25131e; }
+    .visual-ring { width: 128px; height: 128px; z-index: 1; display: grid; place-items: center; border: 1px solid var(--gold); border-radius: 50%; box-shadow: 0 0 0 22px rgba(255,195,107,.05),0 0 0 44px rgba(255,195,107,.025); color: var(--gold); font-weight: 800; }
+    .visual-score { z-index: 1; font-family: Manrope,sans-serif; font-size: 4.6rem; font-weight: 800; letter-spacing: -.08em; color: var(--cyan); }.visual-score span { font-size: 1rem; color: var(--muted); }
+    .visual-nodes { z-index: 1; display: flex; align-items: center; gap: 2rem; }.visual-nodes span { width: 76px; height: 76px; display: grid; place-items: center; border: 1px solid var(--violet); border-radius: 50%; background: rgba(155,130,255,.1); color: #d6ceff; }.visual-nodes i { width: 80px; height: 1px; background: linear-gradient(90deg,var(--violet),var(--cyan)); position: relative; }.visual-nodes i::after { content: ""; position: absolute; top: -3px; right: 0; width: 7px; height: 7px; border-top: 1px solid var(--cyan); border-right: 1px solid var(--cyan); transform: rotate(45deg); }
+    .visual-bars { z-index: 1; height: 120px; display: flex; align-items: end; gap: 10px; }.visual-bars i { width: 24px; border-radius: 6px 6px 0 0; background: linear-gradient(to top,var(--coral),var(--gold)); }
+    .project-copy { padding: 1.5rem; display: flex; flex: 1; flex-direction: column; }
+    .tags { display: flex; gap: .55rem; flex-wrap: wrap; color: var(--cyan); font-size: .66rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+    .project h3 { margin: .75rem 0 .55rem; font-size: clamp(1.45rem,2.4vw,2.05rem); line-height: 1.08; letter-spacing: -.04em; }
+    .project p { margin: 0; color: var(--muted); }
+    .project-link { margin-top: auto; padding-top: 1rem; display: flex; justify-content: space-between; color: #dcd8ea; font-size: .86rem; }
+    .project-link span:last-child { color: var(--coral); }
+
+    .impact-grid { display: grid; grid-template-columns: 1.1fr .9fr .9fr; gap: 1rem; }
+    .impact-card { min-height: 250px; padding: 1.8rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); position: relative; overflow: hidden; }
+    .impact-card:first-child { background: linear-gradient(140deg,rgba(255,113,140,.16),rgba(155,130,255,.12)); }
+    .impact-card strong { display: block; margin-top: 2.5rem; font-family: Manrope,sans-serif; font-size: clamp(3.5rem,7vw,6.5rem); line-height: 1; letter-spacing: -.08em; }
+    .impact-card:first-child strong { color: var(--gold); }.impact-card:nth-child(2) strong { color: var(--cyan); }.impact-card:nth-child(3) strong { color: var(--coral); }
+    .impact-card p { margin: .65rem 0 0; color: var(--muted); }
+
+    .about-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(3rem,8vw,8rem); align-items: start; }
+    .about-copy p { color: #c0bdcc; }
+    .timeline { border-top: 1px solid var(--line); }
+    .timeline-item { display: grid; grid-template-columns: 90px 1fr; gap: 1rem; padding: 1.5rem 0; border-bottom: 1px solid var(--line); }
+    .timeline-item > span { color: var(--cyan); font-size: .7rem; letter-spacing: .07em; }
+    .timeline-item h3 { margin: 0 0 .2rem; font-size: 1.1rem; }.timeline-item p { margin: 0; color: var(--muted); font-size: .88rem; }
+    .skills { margin-top: 4rem; display: grid; grid-template-columns: repeat(4,1fr); gap: .7rem; }
+    .skill { padding: 1.15rem; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); }
+    .skill span { color: var(--coral); font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; }.skill strong { display: block; margin-top: .45rem; font-size: .88rem; }
+
+    .contact { min-height: 580px; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; padding: clamp(2rem,7vw,6rem); border: 1px solid var(--line); border-radius: 30px; background: linear-gradient(130deg,rgba(255,113,140,.14),rgba(155,130,255,.14) 48%,rgba(98,230,216,.1)); position: relative; overflow: hidden; }
+    .contact::after { content: "NM"; position: absolute; right: -2%; bottom: -24%; color: rgba(255,255,255,.035); font-family: Manrope,sans-serif; font-size: clamp(15rem,34vw,31rem); font-weight: 800; line-height: 1; pointer-events: none; }
+    .contact > * { position: relative; z-index: 1; }.contact p { max-width: 600px; color: #c8c4d4; font-size: 1.05rem; }
+    footer { display: flex; justify-content: space-between; align-items: center; gap: 2rem; padding: 2.2rem 0 3.5rem; color: var(--muted); font-size: .8rem; }
+    .footer-links { display: flex; gap: 1.2rem; }.footer-links a:hover { color: var(--cyan); }
+
+    dialog { width: min(760px,calc(100% - 2rem)); max-height: 88vh; padding: clamp(2rem,5vw,4rem); color: var(--text); background: rgba(14,16,32,.96); border: 1px solid rgba(255,255,255,.2); border-radius: 24px; box-shadow: 0 40px 100px rgba(0,0,0,.55); }
+    dialog::backdrop { background: rgba(5,5,12,.72); backdrop-filter: blur(8px); }
+    .close { position: absolute; top: 1rem; right: 1rem; width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 50%; background: var(--surface); cursor: pointer; }
+    .modal-kicker { color: var(--coral); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; }
+    dialog h2 { margin: .9rem 0; font-size: clamp(2rem,4.5vw,3.7rem); line-height: 1; letter-spacing: -.055em; }
+    .modal-summary { color: #c5c2d0; }
+    .modal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; margin-top: 2rem; background: var(--line); border: 1px solid var(--line); }
+    .modal-grid div { padding: 1.25rem; background: var(--bg-2); }.modal-grid span { color: var(--cyan); font-size: .66rem; letter-spacing: .1em; }.modal-grid p { margin: .45rem 0 0; color: var(--muted); font-size: .86rem; }
+
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease,transform .7s ease; }.reveal.visible { opacity: 1; transform: none; }
+    *:focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; }
+
+    @media (max-width: 980px) {
+      .hero { grid-template-columns: 1fr; }.portrait-shell { justify-self: center; width: min(78vw,450px); }.section-head { grid-template-columns: 1fr; gap: 1rem; }.project:first-child,.project:nth-child(2),.project { grid-column: span 6; }.impact-grid { grid-template-columns: 1fr 1fr; }.impact-card:first-child { grid-column: span 2; }.about-grid { grid-template-columns: 1fr; }.skills { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 680px) {
+      .wrap,header { width: min(calc(100% - 24px),var(--max)); }.logo span:last-child,nav { display: none; }.menu-button { display: block; }.mobile-open nav { position: absolute; top: 72px; left: 0; right: 0; display: flex; flex-direction: column; gap: 0; padding: .75rem; border: 1px solid var(--line); border-radius: 16px; background: rgba(14,16,32,.97); }.mobile-open nav a { padding: .75rem; }.hero { padding: 4rem 0 6rem; }.hero h1 { font-size: clamp(3.4rem,18vw,5.2rem); }.portrait-card { right: -2%; width: 180px; }.ticker-track { animation-duration: 18s; } section { padding: 5.5rem 0; }.project:first-child,.project:nth-child(2),.project { grid-column: 1 / -1; }.impact-grid { grid-template-columns: 1fr; }.impact-card:first-child { grid-column: auto; }.skills { grid-template-columns: 1fr; }.modal-grid { grid-template-columns: 1fr; }.contact { min-height: 500px; padding: 2rem; } footer { align-items: flex-start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *,*::before,*::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }.reveal { opacity: 1; transform: none; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="orb orb-a" aria-hidden="true"></div>
+  <div class="orb orb-b" aria-hidden="true"></div>
+
+  <header id="header">
+    <a class="logo" href="#top" aria-label="Nazifa Maliha home">
+      <span class="logo-mark">N</span>
+      <span>Nazifa Maliha</span>
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="#work">Work</a>
+      <a href="#impact">Impact</a>
+      <a href="#about">About</a>
+      <a class="nav-cta" href="mailto:nazifaramisha@gmail.com">Let’s connect</a>
+    </nav>
+    <button class="menu-button" type="button" aria-label="Open menu" aria-expanded="false">Menu</button>
+  </header>
+
+  <main id="main">
+    <section class="hero wrap" id="top">
+      <div class="reveal">
+        <span class="eyebrow">AI × Business × Enterprise</span>
+        <h1>I turn AI into <span class="gradient-text">business value.</span></h1>
+        <p class="intro">I’m Nazifa Maliha—an AI and business analyst building practical models, decision systems, and research that help organizations move from interesting technology to measurable results.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#work">Explore my work <span>↘</span></a>
+          <a class="button button-secondary" href="mailto:nazifaramisha@gmail.com">Email me</a>
+        </div>
+        <div class="mini-links">
+          <a href="https://www.linkedin.com/in/nazifa-maliha/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+          <a href="https://github.com/naxifa" target="_blank" rel="noreferrer">GitHub ↗</a>
+          <span>Tampa, Florida</span>
+        </div>
+      </div>
+
+      <div class="portrait-shell reveal">
+        <div class="portrait-aura" aria-hidden="true"></div>
+        <div class="portrait-frame"><img src="headshot.jpg" alt="Professional portrait of Nazifa Maliha" /></div>
+        <div class="portrait-card"><small>Currently exploring</small><strong>AI governance, agentic systems & decision intelligence</strong></div>
+      </div>
+    </section>
+
+    <div class="ticker" aria-label="Technical skills">
+      <div class="ticker-track">
+        <span>Python</span><i></i><span>SQL</span><i></i><span>Machine Learning</span><i></i><span>AI Strategy</span><i></i><span>Power BI</span><i></i><span>Tableau</span><i></i><span>Agentic AI</span><i></i><span>Risk Modeling</span><i></i>
+        <span>Python</span><i></i><span>SQL</span><i></i><span>Machine Learning</span><i></i><span>AI Strategy</span><i></i><span>Power BI</span><i></i><span>Tableau</span><i></i><span>Agentic AI</span><i></i><span>Risk Modeling</span><i></i>
+      </div>
+    </div>
+
+    <section class="wrap" id="work">
+      <div class="section-head reveal">
+        <div><span class="section-kicker">01 · Selected work</span><h2>Built around the decision—not the hype.</h2></div>
+        <p>Research, strategy, and analytics projects that connect technical work to a clear business question.</p>
+      </div>
+
+      <div class="filters reveal" aria-label="Filter projects">
+        <button class="filter active" data-filter="all" type="button">All work</button>
+        <button class="filter" data-filter="research" type="button">Research</button>
+        <button class="filter" data-filter="strategy" type="button">AI strategy</button>
+        <button class="filter" data-filter="analytics" type="button">Analytics</button>
+      </div>
+
+      <div class="projects">
+        <article class="project reveal" data-category="research strategy" data-project="shadow">
+          <div class="project-art art-risk"><div class="visual-ring">RISK × COST</div></div>
+          <div class="project-copy"><div class="tags"><span>Healthcare</span><span>AI governance</span></div><h3>Shadow AI Financial Risk Model</h3><p>Estimates what unauthorized AI use could cost a hospital—and when governance becomes the better financial choice.</p><div class="project-link"><span>Open case study</span><span>↗</span></div></div>
+        </article>
+
+        <article class="project reveal" data-category="strategy analytics" data-project="raymond">
+          <div class="project-art art-audit"><div class="visual-score">4.0<span>/5</span></div></div>
+          <div class="project-copy"><div class="tags"><span>Strategy</span><span>Transformation</span></div><h3>Raymond James Digital Audit</h3><p>Separated process improvements from initiatives with real transformation potential.</p><div class="project-link"><span>Open case study</span><span>↗</span></div></div>
+        </article>
+
+        <article class="project reveal" data-category="research strategy" data-project="agent">
+          <div class="project-art art-agent"><div class="visual-nodes"><span>Human</span><i></i><span>Agent</span></div></div>
+          <div class="project-copy"><div class="tags"><span>Agentic AI</span><span>Future of work</span></div><h3>Dynamic Upskilling Agent</h3><p>A personalized apprenticeship system that adapts training, practice, and support to each employee.</p><div class="project-link"><span>Open case study</span><span>↗</span></div></div>
+        </article>
+
+        <article class="project reveal" data-category="analytics" data-project="data">
+          <div class="project-art art-data"><div class="visual-bars"><i style="height:42%"></i><i style="height:66%"></i><i style="height:54%"></i><i style="height:88%"></i><i style="height:72%"></i></div></div>
+          <div class="project-copy"><div class="tags"><span>Python</span><span>50K+ records</span></div><h3>Healthcare Data Pipeline</h3><p>Cleaned and structured healthcare data to create a reliable foundation for analysis and modeling.</p><div class="project-link"><span>Open case study</span><span>↗</span></div></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap" id="impact">
+      <div class="section-head reveal">
+        <div><span class="section-kicker">02 · Evidence</span><h2>Work that moves a number.</h2></div>
+        <p>A few outcomes from entrepreneurship, analytics, and research.</p>
+      </div>
+      <div class="impact-grid reveal">
+        <div class="impact-card"><span class="section-kicker">Data scale</span><strong>50K+</strong><p>healthcare records prepared for dependable analysis</p></div>
+        <div class="impact-card"><span class="section-kicker">Growth</span><strong>15%</strong><p>sales improvement through inventory analytics</p></div>
+        <div class="impact-card"><span class="section-kicker">Efficiency</span><strong>30%</strong><p>reduction in stockouts through better decisions</p></div>
+      </div>
+    </section>
+
+    <section class="wrap" id="about">
+      <div class="about-grid">
+        <div class="about-copy reveal"><span class="section-kicker">03 · About</span><h2>Analyst mindset. Builder energy.</h2><p>I’m pursuing an M.S. focused on AI in business and enterprise integration at the University of South Florida. My background spans research, analytics, teaching, entrepreneurship, and operations.</p><p>That mix helps me translate between the technical team building a system and the business leaders deciding whether it is useful, responsible, and worth the investment.</p></div>
+        <div class="timeline reveal">
+          <div class="timeline-item"><span>NOW</span><div><h3>Graduate Research & Teaching</h3><p>University of South Florida · Information Systems and Muma College of Business</p></div></div>
+          <div class="timeline-item"><span>2021—24</span><div><h3>Founder & CEO · EXTRELLA</h3><p>Built inventory analytics that improved sales, reduced stockouts, and lowered costs.</p></div></div>
+          <div class="timeline-item"><span>2017—</span><div><h3>Founder · The Hexagon Bangladesh</h3><p>Led volunteers and community events supporting more than 250 children.</p></div></div>
+        </div>
+      </div>
+      <div class="skills reveal">
+        <div class="skill"><span>Build</span><strong>Python · SQL · R · JavaScript</strong></div>
+        <div class="skill"><span>Analyze</span><strong>ML · Statistics · Experimentation</strong></div>
+        <div class="skill"><span>Visualize</span><strong>Power BI · Tableau · Excel</strong></div>
+        <div class="skill"><span>Translate</span><strong>AI Strategy · Governance · Systems</strong></div>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <div class="contact reveal"><span class="section-kicker">Available for the right opportunity</span><h2>Let’s build AI that earns its place in the business.</h2><p>I’m interested in roles and collaborations across AI strategy, business analytics, decision intelligence, and enterprise transformation.</p><div class="hero-actions"><a class="button button-primary" href="mailto:nazifaramisha@gmail.com">nazifaramisha@gmail.com</a><a class="button button-secondary" href="https://www.linkedin.com/in/nazifa-maliha/" target="_blank" rel="noreferrer">LinkedIn ↗</a></div></div>
+    </section>
+  </main>
+
+  <footer class="wrap"><span>© 2026 Nazifa Maliha · Tampa, Florida</span><div class="footer-links"><a href="mailto:nazifaramisha@gmail.com">Email</a><a href="https://www.linkedin.com/in/nazifa-maliha/" target="_blank" rel="noreferrer">LinkedIn</a><a href="https://github.com/naxifa" target="_blank" rel="noreferrer">GitHub</a></div></footer>
+
+  <dialog id="project-modal" aria-labelledby="modal-title">
+    <button class="close" type="button" aria-label="Close case study">×</button>
+    <span class="modal-kicker" id="modal-kicker"></span><h2 id="modal-title"></h2><p class="modal-summary" id="modal-summary"></p>
+    <div class="modal-grid"><div><span>THE QUESTION</span><p id="modal-question"></p></div><div><span>THE APPROACH</span><p id="modal-approach"></p></div><div><span>BUSINESS VALUE</span><p id="modal-value"></p></div><div><span>TOOLS & METHODS</span><p id="modal-tools"></p></div></div>
+  </dialog>
+
+  <script>
+    const projects = {
+      shadow: { kicker: "ACTIVE RESEARCH · HEALTHCARE AI", title: "Shadow AI Financial Risk Model", summary: "A financial decision model for healthcare organizations facing unauthorized employee use of public AI tools.", question: "How much could shadow AI cost a hospital, and when is prevention less expensive than accepting the exposure?", approach: "Combine breach likelihood, financial impact, penalties, organization size, governance maturity, and implementation cost in a scenario-based model.", value: "Give leaders a defensible break-even point for governance investment instead of a generic warning that AI is risky.", tools: "Python · Stochastic modeling · Scenario analysis · AI governance" },
+      raymond: { kicker: "AI STRATEGY · FINANCIAL SERVICES", title: "Raymond James Digital Transformation Audit", summary: "A structured review of six AI and digital initiatives at a major financial-services firm.", question: "Are the initiatives changing the business—or mainly helping existing processes run better?", approach: "Applied a three-level test, five-year diagnostic, changed-versus-stayed analysis, and readiness assessment.", value: "Separated operational wins from transformation potential and identified where a more ambitious investment could matter.", tools: "Transformation frameworks · Portfolio analysis · Public filings" },
+      agent: { kicker: "AGENTIC AI · FUTURE OF WORK", title: "Dynamic Upskilling Agent", summary: "An agentic learning concept designed around real work instead of a fixed course catalog.", question: "How can employee development adapt to changing skills, actual performance, and the next task an employee needs to complete?", approach: "Design an agent that identifies skill gaps, selects practice tasks, adjusts support, and passes control to a human coach when needed.", value: "Shorten time-to-competence while making training more relevant, measurable, and connected to enterprise workflows.", tools: "Agentic workflows · Human-in-the-loop design · Process mapping" },
+      data: { kicker: "ANALYTICS · HEALTHCARE", title: "Healthcare Data Quality Pipeline", summary: "A repeatable preparation workflow for more than 50,000 healthcare records.", question: "How can messy healthcare data become trustworthy enough for analysis without hiding what changed?", approach: "Profiled missingness, standardized fields, validated ranges and categories, and documented transformations.", value: "Created a cleaner and more explainable foundation for analytics while reducing the risk of unreliable conclusions.", tools: "Python · Pandas · Data validation · Exploratory analysis" }
+    };
+
+    const header = document.querySelector("#header");
+    const menuButton = document.querySelector(".menu-button");
+    menuButton.addEventListener("click", () => { const open = header.classList.toggle("mobile-open"); menuButton.setAttribute("aria-expanded", open); });
+    document.querySelectorAll("nav a").forEach(link => link.addEventListener("click", () => { header.classList.remove("mobile-open"); menuButton.setAttribute("aria-expanded", "false"); }));
+
+    document.querySelectorAll(".filter").forEach(button => button.addEventListener("click", () => {
+      document.querySelectorAll(".filter").forEach(item => item.classList.remove("active"));
+      button.classList.add("active");
+      document.querySelectorAll(".project").forEach(card => card.classList.toggle("hidden", button.dataset.filter !== "all" && !card.dataset.category.split(" ").includes(button.dataset.filter)));
+    }));
+
+    const modal = document.querySelector("#project-modal");
+    document.querySelectorAll(".project").forEach(card => card.addEventListener("click", () => {
+      const item = projects[card.dataset.project];
+      ["kicker","title","summary","question","approach","value","tools"].forEach(key => document.querySelector(`#modal-${key}`).textContent = item[key]);
+      modal.showModal(); document.body.style.overflow = "hidden";
+    }));
+    document.querySelector(".close").addEventListener("click", () => modal.close());
+    modal.addEventListener("close", () => document.body.style.overflow = "");
+    modal.addEventListener("click", event => { const box = modal.getBoundingClientRect(); if (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom) modal.close(); });
+
+    const observer = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add("visible"); observer.unobserve(entry.target); } }), { threshold: .12 });
+    document.querySelectorAll(".reveal").forEach(element => observer.observe(element));
+  </script>
+</body>
+</html>
