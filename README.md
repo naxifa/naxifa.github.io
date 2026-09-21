@@ -9,8 +9,6 @@ Open this folder in VS Code, then preview `dist/index.html` with the Live Server
 ## Files to edit
 
 - `dist/index.html` — portfolio copy and project cards
-- `dist/styles.css` — visual design and responsive layout
-- `dist/script.js` — filters, case-study dialogs, keyboard navigation, and interactive map
 
 ## GitHub
 
